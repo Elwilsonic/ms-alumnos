@@ -1,0 +1,2 @@
+GET https://host.docker.internal:8843/api/v1/
+Host: alumnos.universidad.localhost
