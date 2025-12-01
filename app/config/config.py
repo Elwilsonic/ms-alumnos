@@ -16,15 +16,21 @@ class Config(object):
 class TestConfig(Config):
     TESTING = True
     DEBUG = True
-    
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URI')
+
 class DevelopmentConfig(Config):
     TESTING = True
     DEBUG = True
-        
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URI')
+
 class ProductionConfig(Config):
     DEBUG = False
     TESTING = False
-    
+    SQLALCHEMY_RECORD_QUERIES = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('PROD_DATABASE_URI')
+
     @classmethod
     def init_app(cls, app):
         Config.init_app(app)
