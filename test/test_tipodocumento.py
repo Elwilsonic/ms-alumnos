@@ -25,27 +25,30 @@ class TipoDocumentoTestCase(unittest.TestCase):
         self.assertIsNotNone(tipodocumento)
         self.assertIsNotNone(tipodocumento.id)
         self.assertGreaterEqual(tipodocumento.id, 1)
-        self.assertEqual(tipodocumento.dni, 46291002)
+        self.assertEqual(tipodocumento.sigla, "DNI")
+        self.assertEqual(tipodocumento.nombre, "Documento Nacional de Identidad")
 
     def test_buscar_por_id(self):
         tipodocumento = nuevotipodocumento()
         r=TipoDocumentoService.buscar_por_id(tipodocumento.id)
         self.assertIsNotNone(r)
-        self.assertEqual(r.dni, 46291002)
-        self.assertEqual(r.libreta_civica, "nacional")
+        self.assertEqual(r.sigla, "DNI")
+        self.assertEqual(r.nombre, "Documento Nacional de Identidad")
 
     def test_buscar_todos(self):
-        tipodocumento1 = nuevotipodocumento()
-        tipodocumento2 = nuevotipodocumento(48291002, "23456789", "98765432", "CD123456")
+        tipodocumento1 = nuevotipodocumento(sigla="DNI", nombre="Documento Nacional de Identidad")
+        tipodocumento2 = nuevotipodocumento(sigla="LC", nombre="Libreta Cívica")
         documentos = TipoDocumentoService.buscar_todos()
         self.assertIsNotNone(documentos)
         self.assertEqual(len(documentos), 2)
 
     def test_actualizar(self):
         tipodocumento = nuevotipodocumento()
-        tipodocumento.dni = 89291002
+        tipodocumento.sigla = "LC"
+        tipodocumento.nombre = "Libreta Cívica Actualizado"
         tipodocumento_actualizado = TipoDocumentoService.actualizar(tipodocumento.id, tipodocumento)
-        self.assertEqual(tipodocumento_actualizado.dni, 89291002)
+        self.assertEqual(tipodocumento_actualizado.sigla, "LC")
+        self.assertEqual(tipodocumento_actualizado.nombre, "Libreta Cívica Actualizado")
     
     def test_borrar(self):
         tipodocumento = nuevotipodocumento()

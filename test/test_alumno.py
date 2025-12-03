@@ -30,7 +30,6 @@ class AlumnoTestCase(unittest.TestCase):
         self.assertIsNotNone(alumno.nombre)
         self.assertGreaterEqual(alumno.id, 1)
         self.assertEqual(alumno.apellido, "Pérez")
-        self.assertEqual(alumno.tipo_documento.pasaporte, "nacnal")
 
     def test_buscar_por_id(self):
         alumno = nuevoalumno()
@@ -42,10 +41,8 @@ class AlumnoTestCase(unittest.TestCase):
     def test_buscar_todos(self):
         alumno1 = nuevoalumno()
         tipo_doc2 = nuevotipodocumento(
-        dni="50291002",
-        libreta_civica="l",
-        libreta_enrolamiento="aci",
-        pasaporte="nacn")
+            sigla="LC",
+            nombre="Libreta Cívica")
     
         alumno2 = nuevoalumno(
         nombre="Pedro",
