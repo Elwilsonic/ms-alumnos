@@ -2,7 +2,7 @@ services:
     alumnos-service:
         image: gestion-alumnos:v1.0.0
         deploy:
-            replicas: 5
+            replicas: 3
         env_file:
             - ../.env
         environment:
