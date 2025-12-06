@@ -4,7 +4,7 @@ from app.models import (
 from datetime import date
 
 from app.services import (
-    AlumnoService, TipoDocumentoService
+    TipoDocumentoService
     
 )
 
@@ -18,6 +18,7 @@ def nuevotipodocumento(sigla="DNI", nombre="Documento Nacional de Identidad",):
 
 def nuevoalumno(nombre="Juan", apellido="Pérez", nrodocumento="46291002", tipo_documento=None,
                 fecha_nacimiento=date(1990, 1, 1), sexo="M", nro_legajo=123456, fecha_ingreso=date(2020, 1, 1),especialidad=None):
+    from app import db
     alumno = Alumno()
     alumno.nombre = nombre
     alumno.apellido = apellido
@@ -28,6 +29,7 @@ def nuevoalumno(nombre="Juan", apellido="Pérez", nrodocumento="46291002", tipo_
     alumno.nro_legajo = nro_legajo
     alumno.fecha_ingreso = fecha_ingreso
     alumno.especialidad = especialidad 
-    AlumnoService.crear(alumno)
+    db.session.add(alumno)
+    db.session.commit()
     return alumno
 
