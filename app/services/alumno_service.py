@@ -5,3 +5,7 @@ class AlumnoService:
     @staticmethod
     def buscar_paginado(limit: int = 100, offset: int = 0) -> list[Alumno]:
         return AlumnoRepository.buscar_paginado(limit=limit, offset=offset)
+
+    @staticmethod
+    def buscar_por_id(id: int):
+        return AlumnoRepository.buscar_por_id(id)

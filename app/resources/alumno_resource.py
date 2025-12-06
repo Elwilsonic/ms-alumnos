@@ -11,3 +11,11 @@ def buscar_todos():
     offset = request.args.get('offset', default=0, type=int)
     alumnos = AlumnoService.buscar_paginado(limit=limit, offset=offset)
     return alumno_mapping.dump(alumnos, many=True), 200
+
+@alumno_bp.route('/alumno/<int:id>', methods=['GET'])
+def buscar_por_id(id):
+    alumno = AlumnoService.buscar_por_id(id)
+    if alumno:
+        return alumno_mapping.dump(alumno), 200
+    else:
+        return jsonify({'error': 'Alumno no encontrado'}), 404
