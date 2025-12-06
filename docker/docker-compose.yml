@@ -7,9 +7,6 @@ services:
             - ../.env
         environment:
             - FLASK_CONTEXT=production
-            - REDIS_HOST=${REDIS_HOST}
-            - REDIS_PORT=${REDIS_PORT}
-            - REDIS_PASSWORD=${REDIS_PASSWORD}
             - HOST_DB=${HOST_DB}
             - USER_DB=${USER_DB}
             - PASSWORD_DB=${PASSWORD_DB}
