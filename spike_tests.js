@@ -15,31 +15,11 @@ export const options = {
 };
 
 export default function () {
-    // URL del microservicio de alumnos
+    // URL del microservicio de alumnos (consulta todos)
     const BASE_URL = 'https://alumnos.universidad.localhost/api/v1/alumno/alumno';
 
-    // JSON válido para crear un alumno
-    const uniqueSuffix = `${__VU}-${__ITER}-${Date.now()}`;
-    const payload = JSON.stringify({
-        "nombre": "Carga",
-        "apellido": "K6",
-        "nrodocumento": `ND-${uniqueSuffix}`,
-        "tipo_documento_id": 2,
-        "fecha_nacimiento": "1995-05-05",
-        "sexo": "M",
-        "nro_legajo": Number(String(Date.now()).slice(-6)),
-        "fecha_ingreso": "2022-08-15",
-        "especialidad_id": 1
-    });
-
-    const params = {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    };
-
-    // POST al endpoint de alumnos
-    const res = http.post(BASE_URL, payload, params);
+    // Solo consulta GET, sin payload
+    const res = http.get(BASE_URL);
 
     statusTrend.add(res.status);
 
