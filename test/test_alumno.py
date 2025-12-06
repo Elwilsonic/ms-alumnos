@@ -24,3 +24,10 @@ class AlumnoTestCase(unittest.TestCase):
         alumnos = AlumnoService.buscar_paginado(limit=2, offset=0)
         self.assertIsNotNone(alumnos)
         self.assertEqual(len(alumnos), 2)
+
+    def test_buscar_por_id(self):
+        alumno = nuevoalumno(nombre="Ana", apellido="García", nrodocumento="12345678")
+        encontrado = AlumnoService.buscar_por_id(alumno.id)
+        self.assertIsNotNone(encontrado)
+        self.assertEqual(encontrado.nombre, "Ana")
+        self.assertEqual(encontrado.apellido, "García")
