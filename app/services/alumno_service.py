@@ -30,7 +30,7 @@ class AlumnoService:
         alumno_existente.sexo = alumno.sexo
         alumno_existente.nro_legajo = alumno.nro_legajo
         alumno_existente.fecha_ingreso = alumno.fecha_ingreso
-        alumno_existente.especialidad = alumno.especialidad
+        alumno_existente.especialidad_id = alumno.especialidad_id
         return AlumnoRepository.actualizar(alumno_existente)
         
     @staticmethod

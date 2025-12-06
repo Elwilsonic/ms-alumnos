@@ -18,4 +18,5 @@ class Alumno(db.Model):
     sexo:str = db.Column(db.String(1), nullable=False) 
     nro_legajo:int = db.Column(db.Integer, nullable=False)
     fecha_ingreso:date = db.Column(db.Date, nullable=False)
-    
+
+    especialidad_id:int = db.Column(db.Integer, nullable=True)

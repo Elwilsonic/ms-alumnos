@@ -7,6 +7,7 @@ class AlumnoMapping(Schema):
     apellido = fields.String(required=True, validate=validate.Length(min=1, max=50))
     nrodocumento = fields.String(required=True, validate=validate.Length(min=1, max=50))
     tipo_documento_id = fields.Integer(required=True)
+    especialidad_id = fields.Integer(required=False, allow_none=True)
     fecha_nacimiento = fields.Date(required=True)
     sexo = fields.String(required=True, validate=validate.Length(equal=1))
     nro_legajo = fields.Integer(required=True)
