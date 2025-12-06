@@ -16,7 +16,7 @@ export const options = {
 
 export default function () {
     // URL del microservicio de alumnos
-    const BASE_URL = 'https://alumnos.universidad.localhost:8843/api/v1/alumno/alumno';
+    const BASE_URL = 'https://alumnos.universidad.localhost/api/v1/alumno/alumno';
 
     // JSON válido para crear un alumno
     const uniqueSuffix = `${__VU}-${__ITER}-${Date.now()}`;
@@ -28,7 +28,8 @@ export default function () {
         "fecha_nacimiento": "1995-05-05",
         "sexo": "M",
         "nro_legajo": Number(String(Date.now()).slice(-6)),
-        "fecha_ingreso": "2022-08-15"
+        "fecha_ingreso": "2022-08-15",
+        "especialidad_id": 1
     });
 
     const params = {
